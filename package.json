@@ -1,0 +1,33 @@
+{
+  "name": "enviral",
+  "version": "1.0.0",
+  "description": "Climate Data by State This web app allows users to select a state from either an interactive map, or a drop-down menu when in mobile mode.",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleconyers/Enviral.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyleconyers/Enviral/issues"
+  },
+  "homepage": "https://github.com/kyleconyers/Enviral#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.12",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
+    "nodemon": "^1.18.6",
+    "orm": "^5.0.2",
+    "sequelize": "^4.41.2"
+  }
+}
