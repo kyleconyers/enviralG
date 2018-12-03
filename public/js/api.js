@@ -10,6 +10,7 @@ var electricArray = [];
 var coalArray = [];
 var ffuelArray = [];
 
+// Scope issue if we don't return the entire function body. The lesson learned is not to return up to the body but to the entire body. 
 function fetchElec() {
     return fetch(urlStringElectricity).then(function (res) {
         return res.json()
@@ -60,7 +61,7 @@ Promise.all([fetchCoal(), fetchFFuel(), fetchElec()]).then(function (data) {
         newObjectIwant['year'] = obj[0];
         newObjectIwant['Elec_kw'] = obj[1];
         return newObjectIwant;
-        
+
     });
     worldAggArr.forEach((yearObj, index) => {
         yearObj['coal_kw'] = data[1][index][1];
@@ -99,16 +100,3 @@ function createWorld() {
 
     console.log("world agg object here ", worldAggArr)
 };
-
-
-//Chaining the data parsing methods
-//https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4
-// let Electricity = electricArray
-//     .filter((units) => {
-//         return units.type === 'Quadrillion Btu';
-//     }).map((world) => {
-//         //Slice(1) because we try get to country name only
-//         return world.name.slice(1)
-//     }).reduce((sum, world) => {
-//         return sum + units.type
-//     });

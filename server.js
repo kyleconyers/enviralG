@@ -12,6 +12,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+// Static directory
+app.use(express.static("public"));
+
+// Routes
+// =============================================================
+require("./routes/htmlroutes.js")(app);
+require("./routes/author-api-routes.js")(app);
+require("./routes/post-api-routes.js")(app);
 // Handlebars
 app.engine(
   "handlebars",
@@ -43,5 +51,15 @@ var syncOptions = { force: false };
 //     );
 //   });
 // });
-app.listen(PORT);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
+
+//app.listen(PORT);
 module.exports = app;
+
