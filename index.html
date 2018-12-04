@@ -17,19 +17,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
 <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+
 <script>
-    var map =
-          new Datamap(
-            {
-              element: document.getElementById('container'),
-              responsive: true,
-              scope: "world"
-            }
-          );
+    var map = new Datamap({
+        element: document.getElementById('container'),
+        projection: 'mercator',
+        responsive: true,
+        fills: {
+        defaultFill: "#ABDDA4",
+        authorHasTraveledTo: "#fa0fa0"
+        },
+        data: {
+        USA: { fillKey: "authorHasTraveledTo" },
+        JPN: { fillKey: "authorHasTraveledTo" },
+        ITA: { fillKey: "authorHasTraveledTo" },
+        CRI: { fillKey: "authorHasTraveledTo" },
+        KOR: { fillKey: "authorHasTraveledTo" },
+        DEU: { fillKey: "authorHasTraveledTo" },
+        },
+        geographyConfig: {
+          popupTemplate: function(geo, data) {
+                return ['<div class="hoverinfo"><strong>',
+                        'Number of things in ' + geo.properties.name,
+                        ': ' + data.numberOfThings,
+                        '</strong></div>'].join('');
+            },
+          borderColor: '#444',
+          borderWidth: 1,
+          borderOpacity: 1,
+          dataUrl: null
+          //dataJson: topoJsonData
+        }
+    });
+
+    // Draw a legend for this map
+        map.legend();
+
+    // Make labels for the state and countries
+        // map.labels({labelColor: 'blue', fontSize: 12});
+
+    // Use d3 to make the map responsive in case the screen size changes
+        d3.select(window).on('resize', function() {
+        map.resize();
+    });
+
+</script>
+
+<!-- jQuery command to access the map options -->
+<script>
+  // $("#container").datamaps(options);
 </script>
 
   </body>
