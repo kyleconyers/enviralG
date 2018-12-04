@@ -11,6 +11,7 @@ var coalArray = [];
 var ffuelArray = [];
 var worldCreated;
 
+// Scope issue if we don't return the entire function body. The lesson learned is not to return up to the body but to the entire body. 
 function fetchElec() {
     return fetch(urlStringElectricity).then(function (res) {
         return res.json()
@@ -74,7 +75,7 @@ Promise.all([fetchCoal(), fetchFFuel(), fetchElec()]).then(function (data) {
         newObjectIwant['year'] = obj[0];
         newObjectIwant['Elec_kw'] = obj[1];
         return newObjectIwant;
-        
+
     });
     worldAggArr.forEach((yearObj, index) => {
         yearObj['coal_kw'] = data[1][index][1];
@@ -130,65 +131,21 @@ var MassiveArray = [];
 
 //REformatting URL string array
 
-// function createworld() {
-//     console.log(coalArray)
-//     var chartData = electricArray.map(function(year, i){
-//         return [year[0], year[1], coalArray[i][1],
-//                                   ffuelArray[i][1]
-//     ]})
-//     var finalData = []
-//     for(var i = chartData.length - 1; i>-1; i--){
-//         finalData.push(chartData[i])
-//     }
-//     finalData.unshift(["year", "electric", "coal", "ffuel"])
-//     // var worldAggArr = electricArray.map(obj => {
-//     //     var newObjectIwant = {};
-//     //     newObjectIwant['year'] = obj[0];
-//     //     newObjectIwant['Elec_kw'] = obj[1];
-//     //     return newObjectIwant;
-//     // });
 
-//     // worldAggArr.forEach((yearObj, index) => {
-//     //     yearObj['coal_kw'] = coalArray[index][1];
-//     //     yearObj['ffuel_kw'] = ffuelArray[index][1];
+function createWorld() {
+    var worldAggArr = electricArray.map(obj => {
+        var newObjectIwant = {};
+        newObjectIwant['year'] = obj[0];
+        newObjectIwant['Elec_kw'] = obj[1];
+        return newObjectIwant;
+    });
 
-//     // });
-//     // makeGraph(worldAggArr);
-//     // console.log("world agg object here ", worldAggArr)
-//     console.log(finalData, "envoked")
-//     return finalData;
-// };
+    worldAggArr.forEach((yearObj, index) => {
+        yearObj['coal_kw'] = coalArray[index][1];
+        yearObj['ffuel_kw'] = ffuelArray[index][1];
 
+    });
 
-// function drawChart() {
-  
-//     var data = google.visualization.arrayToDataTable([
-//       ['Year', 'coal', 'natural gas'],
-//       ['2013',  1000,      400],
-//       ['2014',  1170,      460],
-//       ['2015',  660,       1120],
-//       ['2016',  1030,      540]
-  
-//     ]);
-  
-//     var options = {
-//       isStacked: true,
-//       title: 'Company Performance',
-//       hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-//       vAxis: {minValue: 0}
-//     };
-    
-//     var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-//     chart.draw(data, options);
-//   }
-//Chaining the data parsing methods
-//https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4
-// let Electricity = electricArray
-//     .filter((units) => {
-//         return units.type === 'Quadrillion Btu';
-//     }).map((world) => {
-//         //Slice(1) because we try get to country name only
-//         return world.name.slice(1)
-//     }).reduce((sum, world) => {
-//         return sum + units.type
-//     });
+    console.log("world agg object here ", worldAggArr)
+};
+
