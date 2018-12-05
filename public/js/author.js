@@ -5,7 +5,7 @@ $(document).ready(function() {
   var authorContainer = $(".author-container");
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
-  $(document).on("submit", "#author-form", handleAuthorFormSubmit);
+  $(document).on("click", "#author-submit", handleAuthorFormSubmit);
   $(document).on("click", ".delete-author", handleDeleteButtonPress);
 
   // Getting the initial list of Authors
@@ -26,8 +26,10 @@ $(document).ready(function() {
     });
   }
 
+
   // A function for creating an author. Calls getAuthors upon completion
   function upsertAuthor(authorData) {
+    console.log('author name', authorData)
     $.post("/api/authors", authorData)
       .then(getAuthors);
   }

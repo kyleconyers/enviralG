@@ -13,7 +13,7 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts/comments
-  app.get("/api/comments", function(req, res) {
+  app.get("/api/comment", function(req, res) {
     var query = {};
     if (req.query.post_id) {
       query.Postid = req.query.post_id;
@@ -30,7 +30,7 @@ module.exports = function(app) {
   });
 
   // Get route for retrieving a single post/comment
-  app.get("/api/comments/:id", function(req, res) {
+  app.get("/api/comment/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
@@ -45,14 +45,15 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post/comment
-  app.post("/api/comments", function(req, res) {
+  app.post("/api/comment", function(req, res) {
+    console.log("...................................................route reg body")
     db.Comment.create(req.body).then(function(dbComment) {
       res.json(dbComment);
     });
   });
 
   // DELETE route for deleting posts/comment
-  app.delete("/api/comments/:id", function(req, res) {
+  app.delete("/api/comment/:id", function(req, res) {
     db.Comment.destroy({
       where: {
         id: req.params.id
@@ -63,7 +64,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating posts
-  app.put("/api/comments", function(req, res) {
+  app.put("/api/comment", function(req, res) {
     db.Comment.update(
       req.body,
       {
