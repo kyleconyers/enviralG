@@ -1,3 +1,35 @@
-.list-group-item {
-  line-height: 2.5;
+#container {
+  margin: auto;
+  background-color: lightseagreen;
 }
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 45px;
+  color: green;
+}
+
+body {
+  background: url("https://image.freepik.com/darmowe-zdjecie/abstrakcyjne-t%C5%82o-techno-z-po%C5%82%C4%85czenia-linii_1048-5690.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Title for the map legend */
+.datamaps-legend {
+  color: yellow;
+  background-color: black;
+  width: 550px;
+  height: 70px;
+}
+
+/* Style for the legend text */
+.datamaps-legend dt, .datamaps-legend dd {
+  font-size: 12px;
+  color: yellow;
+  background-color: black;
+}
+
+
