@@ -4,9 +4,11 @@ $(document).ready(function() {
   // blogContainer holds all of our posts
   var blogContainer = $(".blog-container");
   var postCategorySelect = $("#category");
+  var commentContainer = $("#commentBody");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
+  $(document).on("click", "#commentSubmit", handleComment);
   // Variable to hold our posts
   var posts;
 
@@ -22,6 +24,28 @@ $(document).ready(function() {
   else {
     getPosts();
   }
+
+  //Function handleComment
+
+  function handleComment(event) {
+    event.preventDefault();
+    //console.log("testing handle comment click")
+    var commentText = $("#commentBody").val().trim();
+    var newComment = {
+      // title: "title",
+      body: commentText,
+      PostId: 1,
+    }
+    console.log("..................xxx", newComment)
+    //console.log("comment body test", commentText)
+    $.post("/api/comment", newComment, function() {
+      console.log("look at me???????")
+    })
+      // .then(commentData);
+      // console.log("commentData", commentData)
+
+  }
+
 
 
   // This function grabs posts from the database and updates the view
@@ -90,8 +114,10 @@ $(document).ready(function() {
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
+    var newPostId = $("<p>")
     newPostTitle.text(post.title + " ");
     newPostBody.text(post.body);
+    newPostId.text(post.id);
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
@@ -99,6 +125,7 @@ $(document).ready(function() {
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostAuthor);
     newPostCardBody.append(newPostBody);
+    newPostCardBody.append(newPostId);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);

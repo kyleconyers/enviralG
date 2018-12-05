@@ -27,7 +27,9 @@ module.exports = function(app) {
   });
 
   app.post("/api/authors", function(req, res) {
+    
     db.Author.create(req.body).then(function(dbAuthor) {
+      //console.log("..................................", dbAuthor)
       res.json(dbAuthor);
     });
   });
