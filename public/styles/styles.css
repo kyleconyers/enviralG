@@ -6,7 +6,7 @@
 h1 {
   text-align: center;
   margin: 20px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 45px;
   color: green;
 }
@@ -26,10 +26,9 @@ body {
 }
 
 /* Style for the legend text */
-.datamaps-legend dt, .datamaps-legend dd {
+.datamaps-legend dt,
+.datamaps-legend dd {
   font-size: 12px;
   color: yellow;
   background-color: black;
 }
-
-
