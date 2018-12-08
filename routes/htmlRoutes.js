@@ -14,27 +14,27 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "./blog.html"));
   });
 
   // cms route loads cms.html
   app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+    res.sendFile(path.join(__dirname, "./cms.html"));
   });
 
   // blog route loads blog.html
   app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "./blog.html"));
   });
 
   // comment route loads blog.html
   app.get("/comment", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/comment.html"));
+    res.sendFile(path.join(__dirname, "./comment.html"));
   });
 
   // authors route loads author-manager.html
   app.get("/authors", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/author-manager.html"));
+    res.sendFile(path.join(__dirname, "./author-manager.html"));
   });
 
 };
