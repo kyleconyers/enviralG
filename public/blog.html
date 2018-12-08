@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./styles/styles.css" media="screen" title="no title">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  
+
 </head>
 
 <body>
@@ -34,10 +34,14 @@
     </div>
     <div id="example_list">
       <label for="commentBody">Comment:</label>
+      <div id="container">
+        <ul id="lala">
+          <li> Comments
+          </li>
+        </ul>
+      </div>
       <textarea placeholder="Comment Body" class="form-control" rows="10" id="commentBody"></textarea>
       <input placeholder="Enter a name" id="commentorName" type="text">
-      <button class="delete btn btn-danger">x</button>
-      <button class="edit btn btn-info">EDIT</button>
       <button type="submit" class="btn btn-success" id="commentSubmit">Submit</button>
     </div>
   </div>

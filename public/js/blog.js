@@ -9,6 +9,8 @@ $(document).ready(function () {
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
   $(document).on("click", "#commentSubmit", handleComment);
+  $(document).on("click", ".deleteButton", handleCommentDelete);
+
   // Variable to hold our posts
   var posts;
 
@@ -28,7 +30,6 @@ $(document).ready(function () {
   //Function handleComment
 
   function handleComment(event) {
-    event.preventDefault();
     //console.log("testing handle comment click")
     var commentText = $("#commentBody").val().trim();
     var newComment = {
@@ -51,11 +52,12 @@ $(document).ready(function () {
       .then(function (response) {
         //console.log(response);
         for (let i = 0; i < response.data.length; i++) {
-          var p = $('<p>')
-          p.text(response.data[i].body)
-          // console.log("this is", p);
-          // console.log("this is another thing", response.data[i].body)
-          $(".comment").append(p);
+          var li = $('<li>')
+          li.html("<span>"+response.data[i].body+"</span><span><button id ="+response.data[i].id+" class = \"deleteButton\" type=\"button\">Delete</button>")
+          //li.text(response.data[i].body)
+          // console.log("this is", li);
+          //console.log("this is another thing", response.data[i].body)
+          $('#lala').append(li);
         }
       })
       .catch(function (error) {
@@ -89,6 +91,19 @@ $(document).ready(function () {
       })
       .then(function () {
         getPosts(postCategorySelect.val());
+      });
+  }
+
+  // This function does an API call to delete comments
+  function deleteComment(id) {
+    $.ajax({
+        method: "DELETE",
+        url: "/api/comment/" + id
+      })
+      .then(function () {
+        var commentContainer = $("#commentBody");
+        commentContainer.empty();
+        getComment(commentContainer.val());
       });
   }
 
@@ -139,7 +154,7 @@ $(document).ready(function () {
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostAuthor);
     newPostCardBody.append(newPostBody);
-    //newPostCardBody.append(newPostId);
+    //newPostCardBody.append(testContainer);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
@@ -154,6 +169,14 @@ $(document).ready(function () {
       .data("post");
     deletePost(currentPost.id);
   }
+
+  // This function figures out which comment we want to delete and then calls deleteComment
+  function handleCommentDelete() {
+    console.log ("Delete function can you see?")
+    var currentComment = this;
+    deleteComment(currentComment.id);
+  }
+
 
   // This function figures out which post we want to edit and takes it to the appropriate url
   function handlePostEdit() {

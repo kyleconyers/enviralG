@@ -1,4 +1,4 @@
-//THIS IS THE FRONT END CODE FOR MESSAGE BOARD
+//NOT USING THIS PAGE, WILL CLEAN UP
 
 // Get references to page elements
 var $commentBody = $("#example-text");
@@ -14,19 +14,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "/api/comments",
+      url: "/api/comment",
       data: JSON.stringify(example)
     });
   },
   getComment: function() {
     return $.ajax({
-      url: "/api/comments",
+      url: "/api/comment",
       type: "GET"
     });
   },
   deleteComment: function(id) {
     return $.ajax({
-      url: "/api/comments" + id,
+      url: "/api/comment" + id,
       type: "DELETE"
     });
   }

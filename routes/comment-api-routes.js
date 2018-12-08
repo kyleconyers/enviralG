@@ -46,7 +46,7 @@ module.exports = function(app) {
 
   // POST route for saving a new post/comment
   app.post("/api/comment", function(req, res) {
-    console.log("...................................................route reg body")
+    //console.log("...................................................route reg body")
     db.Comment.create(req.body).then(function(dbComment) {
       res.json(dbComment);
     });
