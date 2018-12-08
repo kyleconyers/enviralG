@@ -33,7 +33,7 @@ module.exports = function(app) {
   });
 
   // authors route loads author-manager.html
-  app.get("/author", function(req, res) {
+  app.get("/authors", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/author-manager.html"));
   });
 
