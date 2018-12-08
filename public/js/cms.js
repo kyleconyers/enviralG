@@ -71,7 +71,7 @@ $(document).ready(function() {
       queryUrl = "/api/posts/" + id;
       break;
     case "author":
-      queryUrl = "/api/author/" + id;
+      queryUrl = "/api/authors/" + id;
       break;
     default:
       return;
@@ -92,13 +92,13 @@ $(document).ready(function() {
 
   // A function to get Authors and then render our list of Authors
   function getAuthors() {
-    $.get("/api/author", renderAuthorList);
+    $.get("/api/authors", renderAuthorList);
   }
   // Function to either render a list of authors, or if there are none, direct the user to the page
   // to create an author first
   function renderAuthorList(data) {
     if (!data.length) {
-      window.location.href = "/author";
+      window.location.href = "/authors";
     }
     $(".hidden").removeClass("hidden");
     var rowsToAdd = [];
