@@ -153,7 +153,7 @@ function drawChart() {
   };
   
   var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-  chart.draw( , options);
+  chart.draw(data, options);
 }
 
 
