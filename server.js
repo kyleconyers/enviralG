@@ -23,13 +23,13 @@ require("./routes/post-api-routes.js")(app);
 require("./routes/comment-api-routes.js")(app);
 
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
+// app.engine(
+//   "handlebars",
+//   exphbs({
+//     defaultLayout: "main"
+//   })
+// );
+// app.set("view engine", "handlebars");
 
 // // Routes
 // require("./routes/apiRoutes")(app);
