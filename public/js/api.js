@@ -1,15 +1,13 @@
 //Check categories id to api calls also in kilowatthours
-var APIkey = 'd84f8f53c83715f73e4dccd041c94ca8'
-const urlStringRenewables = "http://api.eia.gov/category/?api_key=" + APIkey + "&category_id=2783646"
+var APIkey = 'd84f8f53c83715f73e4dccd041c94ca8';
+const urlStringRenewables = "http://api.eia.gov/category/?api_key=" + APIkey + "&category_id=2783646";
 const urlStringElectricity = `http://api.eia.gov/series/?api_key=${APIkey}&series_id=INTL.2-12-WORL-BKWH.A`;
 const urlStringFFuel = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.28-12-WORL-BKWH.A";
 const urlStringCoal = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.29-12-WORL-BKWH.A";
 
-
-
 const urlStringAusCoal = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-AUS-QBTU.A";
 
-var isoArray = ["AUS", "BRA", "CHN", "COD", "FRA", "IND", "RUS", "USA"]
+var isoArray = ["AUS", "BRA", "CHN", "COD", "FRA", "IND", "RUS", "USA"];
 var electricArray = [];
 var coalArray = [];
 var ffuelArray = [];
@@ -26,7 +24,7 @@ const naturalGasArr = [];
 var UsaArr = [];
 
 
-const urlCountriesCoal = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-" + "USA" + "-QBTU.A"
+const urlCountriesCoal = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-" + "USA" + "-QBTU.A";
 const urlCountriesNaturalGas = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4413-2-" + "USA" + "-QBTU.A";
 const urlCountriesPetroleum = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.5-2-" + "USA" + "-QBTU.A";
 const urlCountriesJetFuel = "http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.63-2-" + "USA" + "-QBTU.A";
@@ -52,26 +50,18 @@ function fetchTotalUsa(url) {
         // console.log("test", totalUsaArray);
         return totalUsaArray;
         
-    });
+    })
 
-};
+}
 // fetchTotalCoal();
 var totalUsaArray = usaTotalApi.map(function(url){
     // console.log("http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-" + element + "-QBTU.A");
     return fetchTotalUsa(url)
-})
+});
 
 Promise.all(totalUsaArray).then(function(values) {
     console.log('USA', values)
 })
-
-
-
-
-
-
-
-
 
 
 function fetchTotalCoal(url) {
@@ -85,14 +75,15 @@ function fetchTotalCoal(url) {
         // console.log("Total coal", totalCoalArray);
         coalArr.push(totalCoalArray)
         return totalCoalArray;
-    });
+    })
 
-};
+}
+
 // fetchTotalCoal();
 var totalCoalArray = isoArray.map(function(element){
     // console.log("http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-" + element + "-QBTU.A");
     return fetchTotalCoal("http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-" + element + "-QBTU.A")
-})
+});
 
 Promise.all(totalCoalArray).then(function(values) {
     console.log('coal values', values)
@@ -109,14 +100,15 @@ function fetchTotalNaturalGas(url) {
         // console.log("Total coal", totalCoalArray);
         naturalGasArr.push(totalNaturalGasArray)
         return totalNaturalGasArray;
-    });
+    })
 
-};
+}
+
 // fetchTotalCoal();
 var totalNaturalGasArray = isoArray.map(function(element){
     // console.log("http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4411-2-" + element + "-QBTU.A");
     return fetchTotalNaturalGas("http://api.eia.gov/series/?api_key=" + APIkey + "&series_id=INTL.4413-2-" + element + "-QBTU.A")
-})
+});
 
 Promise.all(totalNaturalGasArray).then(function(values) {
     console.log('natural gas values', values)
@@ -168,7 +160,7 @@ function fetchFFuel() {
         ffuelArray = dataFFuel['series'][0]['data'];
         return ffuelArray;
     })
-};
+}
 
 function fetchCoal() {
     return fetch(urlStringCoal).then(function (res) {
@@ -178,9 +170,9 @@ function fetchCoal() {
         coalArray = dataCoal['series'][0]['data'];
         // console.log("Coal array is heeeere", coalArray);
         return coalArray;
-    });
+    })
 
-};
+}
 
 function fetchAusCoal() {
     return fetch(urlStringAusCoal).then(function (res) {
@@ -192,9 +184,10 @@ function fetchAusCoal() {
         // console.log("Coal array is heeeere", coalArray);
         // console.log("Aus coal", AusCoalArray);
         return AusCoalArray;
-    });
+    })
 
-};
+}
+
 fetchAusCoal();
 
 
@@ -223,7 +216,7 @@ Promise.all([fetchCoal(), fetchFFuel(), fetchElec()]).then(function (data) {
                                   ffuelArray[i][1]
     ]
 
-    })
+    });
     // console.log(chartData)
 
     var worldAggArr = data[0].map(obj => {
@@ -233,11 +226,13 @@ Promise.all([fetchCoal(), fetchFFuel(), fetchElec()]).then(function (data) {
         return newObjectIwant;
 
     });
+    
     worldAggArr.forEach((yearObj, index) => {
         yearObj['coal_kw'] = data[1][index][1];
         yearObj['ffuel_kw'] = data[2][index][1];
 
     });
+
     chartData.unshift(["year", "electric", "coal", "ffuel"])
     // console.log(worldAggArr);
  
@@ -246,8 +241,8 @@ Promise.all([fetchCoal(), fetchFFuel(), fetchElec()]).then(function (data) {
         var chartData = electricArray.map(function(year, i){
             return [year[0], year[1], coalArray[i][1],
                                       ffuelArray[i][1]
-        ]})
-        var finalData = []
+        ]});
+        var finalData = [];
         for(var i = chartData.length - 1; i>-1; i--){
             finalData.push(chartData[i])
         }
@@ -268,10 +263,10 @@ Promise.all([fetchCoal(), fetchFFuel(), fetchElec()]).then(function (data) {
         // console.log("world agg object here ", worldAggArr)
         // console.log(finalData, "envoked")
         return finalData;
-    };
+    }
     worldCreated = createworld();
     return worldCreated;
-}).then(((worldCreated) => console.log(worldCreated)));
+}).then(((worldCreated) => console.log(worldCreated)))
 // .then(createworld());
 //Create object for NA with each type of energy production method
 var objectA = {
@@ -303,7 +298,7 @@ function createWorld() {
     });
 
     console.log("world agg object here ", worldAggArr)
-};
+}
 
 
 // AFG

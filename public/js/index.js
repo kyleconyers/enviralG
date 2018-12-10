@@ -4,6 +4,7 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 // var {createworld} = require("./api.js");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -132,38 +133,33 @@ function drawChart() {
 
   // ]);
 
+  // Defines the data entered in the chart
   var data = google.visualization.arrayToDataTable(
       worldCreated
       );
 
-
   // var data = createworld();
-  console.log(data)
 
-  
   // data = data.map(function(set){
   //   return Object.values(set)
   // })
+
+  // See what 'data' is logging in the console
   console.log(data)
+
   var options = {
     isStacked: true,
-    title: 'Company Performance',
+    title: 'Emissions History',
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
     vAxis: {minValue: 0}
   };
   
+  // Populates the chart on the page below the map
   var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
   chart.draw(data, options);
 }
 
-
-
-
-
-
 // juan example
-
-
 
 // var mapData, svg, leftScale, bottomScale, last_state = false;
 
