@@ -1,15 +1,9 @@
-//npm install line 7, 8 ///d3select/pubsub
-//line 10, 11, 12 find source files in her github ///stackedareachart-tooltip
-//STACKEDAREACHART LINE 12 refers to moretestchart.js///
-//
-
 'use strict';
-
-
 
 const d3Selection = require('d3-selection');
 const PubSub = require('pubsub-js');
 
+// Find source files in github. STACKEDAREACHART refers to moretestchart.js
 const stackedAreaChart = require('./../../src/charts/stacked-area');
 const colors = require('./../../src/charts/helpers/color');
 const tooltip = require('./../../src/charts/tooltip');

@@ -36,7 +36,7 @@ $(document).ready(function () {
       // title: "title",
       body: commentText,
       PostId: 1,
-    }
+    };
     console.log("..................xxx", newComment)
     //console.log("comment body test", commentText)
     $.post("/api/comment", newComment, function () {
@@ -52,7 +52,7 @@ $(document).ready(function () {
       .then(function (response) {
         //console.log(response);
         for (let i = 0; i < response.data.length; i++) {
-          var li = $('<li>')
+          var li = $('<li>');
           li.html("<span>"+response.data[i].body+"</span><span><button id ="+response.data[i].id+" class = \"deleteButton\" type=\"button\">Delete</button>")
           //li.text(response.data[i].body)
           // console.log("this is", li);
@@ -143,7 +143,7 @@ $(document).ready(function () {
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    var newPostId = $("<p>")
+    var newPostId = $("<p>");
     newPostTitle.text(post.title + " ");
     newPostBody.text(post.body);
     newPostId.text(post.id);
