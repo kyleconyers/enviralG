@@ -4,7 +4,6 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 // var {createworld} = require("./api.js");
-
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -105,7 +104,7 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 // googlecharts
 
 google.charts.load('current', {'packages':['corechart']});
-setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 2000);
+setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 3000);
 
 
 //onload: create country total array, pupulate graph totals
@@ -121,45 +120,59 @@ setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 2000);
 
 
 //
-function drawChart() {
-  
+function drawChart(region = "world") {
+
   // var data = google.visualization.arrayToDataTable([
   //   ['Year', 'coal', 'natural gas'],
   //   ['2013',  1000,      400],
   //   ['2014',  1170,      460],
   //   ['2015',  660,       1120],
   //   ['2016',  1030,      540]
-
-
   // ]);
-
-  // Defines the data entered in the chart
+  // console.log(geography)
+  console.log(regionData);
+  console.log(region);
+  // console.log(regionChart)
   var data = google.visualization.arrayToDataTable(
-      worldCreated
+      regionData[region]
       );
-
+      console.log(data)
   // var data = createworld();
-
+  // console.log(data) 
   // data = data.map(function(set){
   //   return Object.values(set)
   // })
-
-  // See what 'data' is logging in the console
-  console.log(data)
-
+  // console.log(data)
   var options = {
     isStacked: true,
-    title: 'Emissions History',
+    title: 'Company Performance',
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
     vAxis: {minValue: 0}
   };
-  
-  // Populates the chart on the page below the map
-  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+
+  if(region == "world"){
+
+     var chart = new google.visualization.AreaChart(document.getElementById('globe_div'));
+  }
+  else var chart = new google.visualization.AreaChart(document.getElementById('nation_div'));
+ 
   chart.draw(data, options);
+
+
+  
+  
 }
 
+
+
+
+
+
+
+
 // juan example
+
+
 
 // var mapData, svg, leftScale, bottomScale, last_state = false;
 
