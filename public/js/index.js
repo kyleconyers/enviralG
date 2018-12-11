@@ -142,7 +142,10 @@ function drawChart(region = "world") {
   // data = data.map(function(set){
   //   return Object.values(set)
   // })
-  // console.log(data)
+
+  // See what 'data' is logging in the console
+  console.log(data);
+
   var options = {
     isStacked: true,
     title: 'Company Performance',
