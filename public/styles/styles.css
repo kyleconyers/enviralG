@@ -1,13 +1,14 @@
 #container {
   position: relative;
-  margin: auto;
+  margin: 2%;
+  float: left;
   background-color: lightseagreen;
-  width: 65%;
+  width: 47%;
 }
 
 h1 {
   text-align: center;
-  margin: 20px;
+
   font-family: "Courier New", Courier, monospace;
   font-size: 45px;
   color: green;
@@ -39,17 +40,26 @@ body {
   display: inline-block;
   justify-content: center;
   margin: auto;
-  width: 32.2%;
+  width: 49%;
   background-color: yellow;
   font-weight: bold;
+  position: relative;
 }
 
-#buttonsParent {
+/* #buttonsParent {
   color: yellow;
   background-color: black;
-  width: 65%;
-  height: 8%;
-  margin: auto;
+  width: 47%;
+  height: 6%;
+  margin: 2%;
+  float: left;
   text-align: center;
   font-size: 12px;
+  position: relative;
+} */
+
+.chart {
+  width: 47%;
+  float: right;
 }
+
