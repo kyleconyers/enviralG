@@ -100,14 +100,6 @@ $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
-
-
-// googlecharts
-
-google.charts.load('current', {'packages':['corechart']});
-setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 2000);
-
-
 //onload: create country total array, pupulate graph totals
 //oncountry click: select country totals, populate new grapgh
 
@@ -121,7 +113,7 @@ setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 2000);
 
 
 //
-function drawChart() {
+function drawWorldChart() {
   
   // var data = google.visualization.arrayToDataTable([
   //   ['Year', 'coal', 'natural gas'],
@@ -145,7 +137,7 @@ function drawChart() {
   // })
 
   // See what 'data' is logging in the console
-  console.log(data)
+  console.log(data);
 
   var options = {
     isStacked: true,
@@ -154,10 +146,59 @@ function drawChart() {
     vAxis: {minValue: 0}
   };
   
-  // Populates the chart on the page below the map
-  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+  var chart = new google.visualization.AreaChart(document.getElementById('world_chart_div'));
+
   chart.draw(data, options);
 }
+
+
+
+function drawCountrySpecificChart() {
+  
+  // var data = google.visualization.arrayToDataTable([
+  //   ['Year', 'coal', 'natural gas'],
+  //   ['2013',  1000,      400],
+  //   ['2014',  1170,      460],
+  //   ['2015',  660,       1120],
+  //   ['2016',  1030,      540]
+
+
+  // ]);
+
+  // Defines the data entered in the chart
+  var data = google.visualization.arrayToDataTable(
+      worldCreated
+      );
+
+  // var data = createworld();
+
+  // data = data.map(function(set){
+  //   return Object.values(set)
+  // })
+
+  // See what 'data' is logging in the console
+  console.log(data);
+
+  var options = {
+    isStacked: true,
+    title: 'Emissions History',
+    hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+    vAxis: {minValue: 0}
+  };
+  
+  var chart = new google.visualization.AreaChart(document.getElementById('country_chart_div'));
+
+  chart.draw(data, options);
+}
+
+// googlecharts populates the world chart on the page below the map
+google.charts.load('current', {'packages':['corechart']});
+setTimeout(function() { google.charts.setOnLoadCallback(drawWorldChart) }, 2000);
+
+// googlecharts populates the country-specific chart on the page below the map
+google.charts.load('current', {'packages':['corechart']});
+setTimeout(function() { google.charts.setOnLoadCallback(drawCountrySpecificChart) }, 2000);
+
 
 // juan example
 
