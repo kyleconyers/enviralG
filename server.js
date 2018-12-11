@@ -7,13 +7,16 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-const favicon = require('express-favicon');
+const favicon = require("express-favicon");
+var favicon = require("serve-favicon");
+var path = require("path");
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
-app.use(favicon(__dirname + '/public/favicon.png'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 // Static directory
 app.use(express.static("public"));
