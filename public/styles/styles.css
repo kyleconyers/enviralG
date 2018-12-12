@@ -39,24 +39,13 @@ body {
 .buttons {
   display: inline-block;
   justify-content: center;
-  margin: auto;
-  width: 49%;
+  width: 23%;
   background-color: yellow;
   font-weight: bold;
   position: relative;
-}
-
-/* #buttonsParent {
-  color: yellow;
-  background-color: black;
-  width: 47%;
-  height: 6%;
-  margin: 2%;
   float: left;
-  text-align: center;
-  font-size: 12px;
-  position: relative;
-} */
+  margin: 1%;
+}
 
 .chart {
   width: 47%;

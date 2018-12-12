@@ -381,7 +381,7 @@ Promise.all([generateResultsObject(), fetchCoal(), fetchFFuel(), fetchElec()]).t
             fuels.forEach(function(fuel){
                 var fuelData = allData[region][fuel].reverse();
                 fuelData.forEach(function(data, index){
-                    console.log(fuelData)
+                    // console.log(fuelData)
                     if(index in regionChart){
                         regionChart[index].push(data[1]);
 
