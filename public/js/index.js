@@ -148,9 +148,9 @@ function drawChart(region = "world") {
 
   var options = {
     isStacked: true,
-    title: 'Company Performance',
+    title: 'Energy Consumption By Fuel Type',
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {minValue: 0}
+    vAxis: {title: "Quadrillions of BTUs", minValue: 0}
   };
 
   if(region == "world"){
