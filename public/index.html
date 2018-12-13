@@ -16,10 +16,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
     
     <!-- Relative Paths -->
-    <script src="public/js/api.js"></script>
-    <script src="public/js/index.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/index.js"></script>
     <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="public/styles/styles.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script src="js/dataMapsDownload.js"></script>
   </head>
 
   <body>
@@ -28,7 +30,9 @@
 
     <button class="buttons" id="mercator">Mercator</button>
     <button class="buttons" id="orthographic">Orthographic</button>
-    
+    <a type ="button" class="buttons" href="./blog.html">Go to Blog</a>
+    <a type ="button" class="buttons" href="./author-manager.html">Manage Authors</a>
+
     <div id="container"></div>
 
     <div id="globe_div" class="chart"></div>
