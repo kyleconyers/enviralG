@@ -52,3 +52,7 @@ body {
   float: right;
 }
 
+h1, th, td {
+  color: green
+}
+
