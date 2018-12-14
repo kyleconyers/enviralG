@@ -58,7 +58,8 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
-    $.post("/api/posts", post, function() {
+    var id = url.substring(url.lastIndexOf('=') + 1);
+    $.post("/api/posts/" + id, post, function() {
       window.location.href = "/blog";
     });
   }
