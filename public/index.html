@@ -18,7 +18,7 @@
     <!-- Relative Paths -->
     <script src="js/api.js"></script>
     <script src="js/index.js"></script>
-    <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
+    <!-- <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <script src="js/dataMapsDownload.js"></script>
@@ -76,10 +76,6 @@
             FRA: { fillKey: "GlobalEnergyProfile" },
             COD: { fillKey: "GlobalEnergyProfile" }
             },
-            // For the orthographic projection
-            // projectionConfig: {
-            //   rotation: [97,-30]
-            // },
             geographyConfig: {
               popupTemplate: function(geo, data) {
                     return ['<div class="hoverinfo"><strong>', geo.properties.name, '</strong></div>'].join('');
@@ -89,7 +85,6 @@
               borderOpacity: 1,
               dataUrl: null,
               hideAntarctica: false
-              //dataJson: topoJsonData
             },
             done: function (datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
@@ -134,10 +129,6 @@
             FRA: { fillKey: "GlobalEnergyProfile" },
             COD: { fillKey: "GlobalEnergyProfile" }
             },
-            // For the orthographic projection
-            // projectionConfig: {
-            //   rotation: [97,-30]
-            // },
             geographyConfig: {
               popupTemplate: function(geo, data) {
                     return ['<div class="hoverinfo"><strong>', geo.properties.name, '</strong></div>'].join('');
@@ -147,7 +138,6 @@
               borderOpacity: 1,
               dataUrl: null,
               hideAntarctica: false
-              //dataJson: topoJsonData
             },
             done: function (datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
@@ -205,7 +195,6 @@
               borderOpacity: 1,
               dataUrl: null,
               hideAntarctica: false
-              //dataJson: topoJsonData
             },
             done: function (datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
