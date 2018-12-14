@@ -200,7 +200,7 @@ $(document).ready(function () {
       "text-align": "center",
       "margin-top": "50px"
     });
-    messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
+    messageH2.html("No posts yet" + partial + ", navigate <a href='/cms.html" + query +
       "'>here</a> in order to get started.");
     blogContainer.append(messageH2);
   }
