@@ -17,22 +17,22 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "/index.html"));
   });
 
-  // This route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "/cms.html"));
+   // This route loads cms.html
+   app.get("/cms", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/cms.html"));
   });
 
   // This route loads blog.html
   app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "/blog.html"));
+    res.sendFile(path.join(__dirname, "../public/blog.html"));
   });
 
   // This route loads comment.html
   app.get("/comment", function(req, res) {
-    res.sendFile(path.join(__dirname, "/comment.html"));
+    res.sendFile(path.join(__dirname, "../public/comment.html"));
   });
 
-  // This route loads author-manager.html
+  // This route loads author-manager.html --- work
   app.get("/authors", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/author-manager.html"));
   });

@@ -45,7 +45,8 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("/api/posts/:id", function(req, res) {
+    console.log ("jldjfalsjdfa", req.params.author_id)
     db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
     });
