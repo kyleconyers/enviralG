@@ -12,12 +12,14 @@ h1 {
   font-family: "Courier New", Courier, monospace;
   font-size: 45px;
   color: green;
+  margin-top: 0px;
 }
 
 body {
   background: url("https://image.freepik.com/darmowe-zdjecie/abstrakcyjne-t%C5%82o-techno-z-po%C5%82%C4%85czenia-linii_1048-5690.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0px;
 }
 
 /* Title for the map legend */
@@ -53,6 +55,37 @@ body {
 }
 
 h1, th, td {
-  color: green
+  color: green;
+  text-align: center;
 }
 
+.navbar {
+  display: inline;
+  float: right;
+  font-size: 20px;
+  background-color: #18BC9C;
+  width: 100%;
+}
+
+a {
+  float: right;
+  text-decoration: none;
+  color: white;
+}
+
+#homePage {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#enviral {
+  text-align: center;
+}
+
+#innerEnviral {
+  display: inline-block;
+  padding-left: 25%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: darkgreen;
+  font-size: 40px;
+}

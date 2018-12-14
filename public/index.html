@@ -1,12 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Enviral</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <!-- Importing CDNs-->
+    <!-- Importing CDNs -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -14,30 +14,36 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
-    
+
     <!-- Relative Paths -->
     <script src="js/dataMapsDownload.js"></script>
     <script src="js/api.js"></script>
     <script src="js/index.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <script src="js/logic.js"></script>
   </head>
 
   <body>
 
-    <h1><strong>Enviral</strong></h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark" id="homePage">
+				<a class="navbar-brand" href="./comment.html">Contribute</a>
+				<a class="navbar-brand" href="./blog.html">Blog&ensp;&nbsp;</a>
+				<a class="navbar-brand" href="./author-manager.html">Authors&ensp;&nbsp;</a>
+        <a class="navbar-brand" href="./index.html">Home&ensp;&nbsp;</a>
+        <div id="enviral">
+          <div id="innerEnviral">Enviral</div>
+        </div>
+    </nav>
 
     <button class="buttons" id="mercator">Mercator</button>
     <button class="buttons" id="orthographic">Orthographic</button>
-    <a type ="button" class="buttons" href="./blog.html">Go to Blog</a>
-    <a type ="button" class="buttons" href="./author-manager.html">Manage Authors</a>
 
     <div id="container"></div>
 
     <div id="globe_div" class="chart"></div>
 
     <div id="nation_div" class="chart"></div>
-
-      </body>
-    </html>
+  </body>
+</html>
