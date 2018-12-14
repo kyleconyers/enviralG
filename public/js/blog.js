@@ -202,6 +202,7 @@ $(document).ready(function () {
     });
     messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
       "'>here</a> in order to get started.");
+      // + partial + ", navigate <a href='/cms" + query + "'>here</a> in order to get started."
     blogContainer.append(messageH2);
   }
   getComment();
