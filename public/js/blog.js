@@ -54,9 +54,9 @@ $(document).ready(function () {
         for (let i = 0; i < response.data.length; i++) {
           var li = $('<li>');
           li.html("<span>"+response.data[i].body+"</span><span><button id ="+response.data[i].id+" class = \"deleteButton\" type=\"button\">Delete</button>")
-          //li.text(response.data[i].body)
+          // li.text(response.data[i].body)
           // console.log("this is", li);
-          //console.log("this is another thing", response.data[i].body)
+          // console.log("this is another thing", response.data[i].body)
           $('#lala').append(li);
         }
       })
@@ -131,6 +131,9 @@ $(document).ready(function () {
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
+    var readBtn = $("<button>");
+    readBtn.text("READ")
+    readBtn.addClass("read btn btn-info")
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostAuthor = $("<h5>");
@@ -144,13 +147,17 @@ $(document).ready(function () {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     var newPostId = $("<p>");
-    newPostTitle.text(post.title + " ");
+    newPostTitle.append($("<a href='/blogPost/" + post + "'>" + "</a>"))
+    // newPostTitle.append($("<a href='/blogPost/" + post.id + "'>"));
+    newPostTitle.text(post.title);
+    // newPostTitle.append($("</a>"));
     newPostBody.text(post.body);
     newPostId.text(post.id);
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
+    newPostCardHeading.append(readBtn)
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostAuthor);
     newPostCardBody.append(newPostBody);
@@ -158,7 +165,10 @@ $(document).ready(function () {
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
+
+   
     return newPostCard;
+
   }
 
   // This function figures out which post we want to delete and then calls deletePost
@@ -176,6 +186,7 @@ $(document).ready(function () {
     var currentComment = this;
     deleteComment(currentComment.id);
   }
+  
 
 
   // This function figures out which post we want to edit and takes it to the appropriate url
@@ -186,6 +197,11 @@ $(document).ready(function () {
       .data("post");
     window.location.href = "/cms?post_id=" + currentPost.id;
   }
+    
+  function handlePostRead() {
+    
+  }
+  
 
   // This function displays a message when there are no posts
   function displayEmpty(id) {
