@@ -375,7 +375,7 @@ Promise.all([generateResultsObject(), fetchCoal(), fetchFFuel(), fetchElec()]).t
             
             // headers.unshift([fuels]);
             ["biofuels", "wind", "jetfuel", "petroleum", "naturalGas", "coal"]
-            var realHeaders = ["year", "biofuels", "wind", "jetfuel", "petroleum", "naturalGas", "coal"]
+            var realHeaders = ["year", "coal", "naturalGas", "petrtoleum", "jetfuel", "wind", "biofuels"]
             var regionChart = [headers];
 
             fuels.forEach(function(fuel){

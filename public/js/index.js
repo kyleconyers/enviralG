@@ -104,7 +104,7 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 // googlecharts
 
 google.charts.load('current', {'packages':['corechart']});
-setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 3000);
+setTimeout(function() { google.charts.setOnLoadCallback(drawChart) }, 2000);
 
 
 //onload: create country total array, pupulate graph totals
