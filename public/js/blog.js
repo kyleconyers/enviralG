@@ -10,6 +10,7 @@ $(document).ready(function () {
   $(document).on("click", "button.edit", handlePostEdit);
   $(document).on("click", "#commentSubmit", handleComment);
   $(document).on("click", ".deleteButton", handleCommentDelete);
+  $(".readBtn").on("click", ".readBtn", handlePostRead);
 
   // Variable to hold our posts
   var posts;
@@ -150,7 +151,7 @@ $(document).ready(function () {
     newPostTitle.append($("<a href='/blogPost/" + post + "'>" + "</a>"))
     // newPostTitle.append($("<a href='/blogPost/" + post.id + "'>"));
     newPostTitle.text(post.title);
-    // newPostTitle.append($("</a>"));
+    newPostTitle.append($("</a>"));
     newPostBody.text(post.body);
     newPostId.text(post.id);
     newPostDate.text(formattedDate);
@@ -199,9 +200,24 @@ $(document).ready(function () {
   }
     
   function handlePostRead() {
+    var currentPost = $(this)
+    // .parent()
+    // .parent()
+    // .data("post");
+    console.log("clicked")
+    // window.location.href = "/blogPost?post_id=" + currentPost.id;
+    
+    // $.ajax({
+    //   method: "GET",
+    //   url: "/api/posts/" + id
+    // })
+    // .then(function () {
+    //   getPosts(postCategorySelect.val());
+    // });
     
   }
   
+  $(".read").click(handlePostRead);
 
   // This function displays a message when there are no posts
   function displayEmpty(id) {
