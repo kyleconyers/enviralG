@@ -1,5 +1,5 @@
 {
-  "name": "enviral",
+  "name": "enviralg",
   "version": "1.0.0",
   "description": "Climate Data by Country: This web app allows users to select a country from either an interactive map, or a drop-down menu when in mobile mode, and receive CO2 emissions data dating from 1980-Present.",
   "main": "server.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyleconyers/Enviral.git"
+    "url": "git+https://github.com/kyleconyers/Enviralg.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kyleconyers/Enviral/issues"
+    "url": "https://github.com/kyleconyers/Enviralg/issues"
   },
-  "homepage": "https://github.com/kyleconyers/Enviral#readme",
+  "homepage": "https://github.com/kyleconyers/Enviralg#readme",
   "dependencies": {
     "chai": "^4.2.0",
     "config.json": "0.0.4",
